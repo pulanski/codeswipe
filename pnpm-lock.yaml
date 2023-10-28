@@ -15,17 +15,17 @@ dependencies:
     specifier: ^0.7.0
     version: registry.npmmirror.com/@t3-oss/env-nextjs@0.7.1(typescript@5.2.2)(zod@3.22.4)
   '@tanstack/react-query':
-    specifier: ^4.32.6
-    version: registry.npmmirror.com/@tanstack/react-query@4.36.1(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^5.0.0
+    version: 5.0.5(react-dom@18.2.0)(react@18.2.0)
   '@trpc/client':
     specifier: ^10.37.1
     version: registry.npmmirror.com/@trpc/client@10.43.0(@trpc/server@10.43.0)
   '@trpc/next':
     specifier: ^10.37.1
-    version: registry.npmmirror.com/@trpc/next@10.43.0(@tanstack/react-query@4.36.1)(@trpc/client@10.43.0)(@trpc/react-query@10.43.0)(@trpc/server@10.43.0)(next@13.5.6)(react-dom@18.2.0)(react@18.2.0)
+    version: registry.npmmirror.com/@trpc/next@10.43.0(@tanstack/react-query@5.0.5)(@trpc/client@10.43.0)(@trpc/react-query@10.43.0)(@trpc/server@10.43.0)(next@13.5.6)(react-dom@18.2.0)(react@18.2.0)
   '@trpc/react-query':
     specifier: ^10.37.1
-    version: registry.npmmirror.com/@trpc/react-query@10.43.0(@tanstack/react-query@4.36.1)(@trpc/client@10.43.0)(@trpc/server@10.43.0)(react-dom@18.2.0)(react@18.2.0)
+    version: registry.npmmirror.com/@trpc/react-query@10.43.0(@tanstack/react-query@5.0.5)(@trpc/client@10.43.0)(@trpc/server@10.43.0)(react-dom@18.2.0)(react@18.2.0)
   '@trpc/server':
     specifier: ^10.37.1
     version: registry.npmmirror.com/@trpc/server@10.43.0
@@ -396,6 +396,27 @@ packages:
     resolution: {integrity: sha512-E4KcWTpoLHqwPHLxidpOqQbcrZVgi0rsmmZXUle1jXmJfuIf/UWpczUJ7MZZ5tlxytgJXyp0w4PGkkeLiuIdZw==}
     dependencies:
       tslib: 2.6.2
+    dev: false
+
+  /@tanstack/query-core@5.0.5:
+    resolution: {integrity: sha512-MThCETMkHDHTnFZHp71L+SqTtD5d6XHftFCVR1xRJdWM3qGrlQ2VCXaj0SKVcyJej2e1Opa2c7iknu1llxCDNQ==}
+    dev: false
+
+  /@tanstack/react-query@5.0.5(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-ZG0Q4HZ0iuI8mWiZ2/MdVYPHbrmAVhMn7+gLOkxJh6zLIgCL4luSZlohzN5Xt4MjxfxxWioO1nemwpudaTsmQg==}
+    peerDependencies:
+      react: ^18.0.0
+      react-dom: ^18.0.0
+      react-native: '*'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      '@tanstack/query-core': 5.0.5
+      react: registry.npmmirror.com/react@18.2.0
+      react-dom: registry.npmmirror.com/react-dom@18.2.0(react@18.2.0)
     dev: false
 
   /axios@0.19.2:
@@ -841,33 +862,6 @@ packages:
       zod: registry.npmmirror.com/zod@3.22.4
     dev: false
 
-  registry.npmmirror.com/@tanstack/query-core@4.36.1:
-    resolution: {integrity: sha512-DJSilV5+ytBP1FbFcEJovv4rnnm/CokuVvrBEtW/Va9DvuJ3HksbXUJEpI0aV1KtuL4ZoO9AVE6PyNLzF7tLeA==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/@tanstack/query-core/-/query-core-4.36.1.tgz}
-    name: '@tanstack/query-core'
-    version: 4.36.1
-    dev: false
-
-  registry.npmmirror.com/@tanstack/react-query@4.36.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-y7ySVHFyyQblPl3J3eQBWpXZkliroki3ARnBKsdJchlgt7yJLRDUcf4B8soufgiYt3pEQIkBWBx1N9/ZPIeUWw==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/@tanstack/react-query/-/react-query-4.36.1.tgz}
-    id: registry.npmmirror.com/@tanstack/react-query/4.36.1
-    name: '@tanstack/react-query'
-    version: 4.36.1
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-      react-native: '*'
-    peerDependenciesMeta:
-      react-dom:
-        optional: true
-      react-native:
-        optional: true
-    dependencies:
-      '@tanstack/query-core': registry.npmmirror.com/@tanstack/query-core@4.36.1
-      react: registry.npmmirror.com/react@18.2.0
-      react-dom: registry.npmmirror.com/react-dom@18.2.0(react@18.2.0)
-      use-sync-external-store: registry.npmmirror.com/use-sync-external-store@1.2.0(react@18.2.0)
-    dev: false
-
   registry.npmmirror.com/@trpc/client@10.43.0(@trpc/server@10.43.0):
     resolution: {integrity: sha512-8LbSpPHmIseb/Ke+GzL45y0itkKunGQWfxqHf2uy69RSRvER0vj+Gu67L8YD86FBgc/nsX/6GBuJiUet5lIDIw==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/@trpc/client/-/client-10.43.0.tgz}
     id: registry.npmmirror.com/@trpc/client/10.43.0
@@ -879,7 +873,7 @@ packages:
       '@trpc/server': registry.npmmirror.com/@trpc/server@10.43.0
     dev: false
 
-  registry.npmmirror.com/@trpc/next@10.43.0(@tanstack/react-query@4.36.1)(@trpc/client@10.43.0)(@trpc/react-query@10.43.0)(@trpc/server@10.43.0)(next@13.5.6)(react-dom@18.2.0)(react@18.2.0):
+  registry.npmmirror.com/@trpc/next@10.43.0(@tanstack/react-query@5.0.5)(@trpc/client@10.43.0)(@trpc/react-query@10.43.0)(@trpc/server@10.43.0)(next@13.5.6)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-yakRlkvf6+uc3igYZi8nPkppJ8jFaCyd/7kvSckgsdLC8ofM+N9rrBkfqdfS5Pd53awkK/MMK8js9v/vabKb6A==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/@trpc/next/-/next-10.43.0.tgz}
     id: registry.npmmirror.com/@trpc/next/10.43.0
     name: '@trpc/next'
@@ -893,9 +887,9 @@ packages:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
-      '@tanstack/react-query': registry.npmmirror.com/@tanstack/react-query@4.36.1(react-dom@18.2.0)(react@18.2.0)
+      '@tanstack/react-query': 5.0.5(react-dom@18.2.0)(react@18.2.0)
       '@trpc/client': registry.npmmirror.com/@trpc/client@10.43.0(@trpc/server@10.43.0)
-      '@trpc/react-query': registry.npmmirror.com/@trpc/react-query@10.43.0(@tanstack/react-query@4.36.1)(@trpc/client@10.43.0)(@trpc/server@10.43.0)(react-dom@18.2.0)(react@18.2.0)
+      '@trpc/react-query': registry.npmmirror.com/@trpc/react-query@10.43.0(@tanstack/react-query@5.0.5)(@trpc/client@10.43.0)(@trpc/server@10.43.0)(react-dom@18.2.0)(react@18.2.0)
       '@trpc/server': registry.npmmirror.com/@trpc/server@10.43.0
       next: 13.5.6(react-dom@18.2.0)(react@18.2.0)
       react: registry.npmmirror.com/react@18.2.0
@@ -903,7 +897,7 @@ packages:
       react-ssr-prepass: registry.npmmirror.com/react-ssr-prepass@1.5.0(react@18.2.0)
     dev: false
 
-  registry.npmmirror.com/@trpc/react-query@10.43.0(@tanstack/react-query@4.36.1)(@trpc/client@10.43.0)(@trpc/server@10.43.0)(react-dom@18.2.0)(react@18.2.0):
+  registry.npmmirror.com/@trpc/react-query@10.43.0(@tanstack/react-query@5.0.5)(@trpc/client@10.43.0)(@trpc/server@10.43.0)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-5+pBnnV9QqnwpO5Li9T60hXHylV1USEjFkRjrnd7mJul/t2dKxs5ouv+YDRnOJ36oD9wDki5lBGk2sOgFrzGUw==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/@trpc/react-query/-/react-query-10.43.0.tgz}
     id: registry.npmmirror.com/@trpc/react-query/10.43.0
     name: '@trpc/react-query'
@@ -915,7 +909,7 @@ packages:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
-      '@tanstack/react-query': registry.npmmirror.com/@tanstack/react-query@4.36.1(react-dom@18.2.0)(react@18.2.0)
+      '@tanstack/react-query': 5.0.5(react-dom@18.2.0)(react@18.2.0)
       '@trpc/client': registry.npmmirror.com/@trpc/client@10.43.0(@trpc/server@10.43.0)
       '@trpc/server': registry.npmmirror.com/@trpc/server@10.43.0
       react: registry.npmmirror.com/react@18.2.0
@@ -4547,17 +4541,6 @@ packages:
     dependencies:
       punycode: registry.npmmirror.com/punycode@2.3.0
     dev: true
-
-  registry.npmmirror.com/use-sync-external-store@1.2.0(react@18.2.0):
-    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/use-sync-external-store/-/use-sync-external-store-1.2.0.tgz}
-    id: registry.npmmirror.com/use-sync-external-store/1.2.0
-    name: use-sync-external-store
-    version: 1.2.0
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    dependencies:
-      react: registry.npmmirror.com/react@18.2.0
-    dev: false
 
   registry.npmmirror.com/util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/util-deprecate/-/util-deprecate-1.0.2.tgz}
