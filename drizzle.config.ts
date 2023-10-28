@@ -8,5 +8,5 @@ export default {
   dbCredentials: {
     connectionString: env.DATABASE_URL,
   },
-  tablesFilter: ["youtubesummary_*"],
+  tablesFilter: ["codeswipe_*"],
 } satisfies Config;
