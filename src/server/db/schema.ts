@@ -17,7 +17,7 @@ import { type AdapterAccount } from "next-auth/adapters";
  *
  * @see https://orm.drizzle.team/docs/goodies#multi-project-schema
  */
-export const mysqlTable = mysqlTableCreator((name) => `youtubesummary_${name}`);
+export const mysqlTable = mysqlTableCreator((name) => `codeswipe_${name}`);
 
 export const posts = mysqlTable(
   "post",
@@ -45,10 +45,50 @@ export const users = mysqlTable("user", {
     fsp: 3,
   }).default(sql`CURRENT_TIMESTAMP(3)`),
   image: varchar("image", { length: 255 }),
+  createdAt: timestamp("createdAt", { mode: "date" }).notNull(),
+  updatedAt: timestamp("updatedAt", { mode: "date" }).notNull(),
 });
 
 export const usersRelations = relations(users, ({ many }) => ({
   accounts: many(accounts),
+  codeSnippets: many(codeSnippets),
+}));
+
+export const comments = mysqlTable(
+  "comment",
+  {
+    id: bigint("id", { mode: "number" }).primaryKey().autoincrement(),
+    snippetId: bigint("snippetId", { mode: "number" }).notNull(),
+    userId: varchar("userId", { length: 255 }).notNull(),
+    commentText: text("commentText").notNull(),
+    createdAt: timestamp("created_at")
+      .default(sql`CURRENT_TIMESTAMP`)
+      .notNull(),
+  },
+  (comment) => ({
+    snippetIdIdx: index("snippetId_idx").on(comment.snippetId),
+    userIdIdx: index("userId_idx").on(comment.userId),
+  })
+);
+
+export const codeSnippets = mysqlTable(
+  "codeSnippet",
+  {
+    id: bigint("id", { mode: "number" }).primaryKey().autoincrement(),
+    userId: varchar("userId", { length: 255 }).notNull(),
+    code: text("code").notNull(),
+    createdAt: timestamp("created_at")
+      .default(sql`CURRENT_TIMESTAMP`)
+      .notNull(),
+    updatedAt: timestamp("updatedAt").onUpdateNow(),
+  },
+  (snippet) => ({
+    userIdIdx: index("userId_idx").on(snippet.userId),
+  })
+);
+
+export const codeSnippetsRelations = relations(codeSnippets, ({ one }) => ({
+  user: one(users, { fields: [codeSnippets.userId], references: [users.id] }),
 }));
 
 export const accounts = mysqlTable(
@@ -73,6 +113,24 @@ export const accounts = mysqlTable(
     userIdIdx: index("userId_idx").on(account.userId),
   })
 );
+
+// TODO: impl me if time
+// export const reactions = mysqlTable(
+//   "reaction",
+//   {
+//     id: bigint("id", { mode: "number" }).primaryKey().autoincrement(),
+//     snippetId: bigint("snippetId", { mode: "number" }).notNull(),
+//     userId: varchar("userId", { length: 255 }).notNull(),
+//     isLike: int("isLike").notNull(),  // 1 for like, 0 for dislike
+//     createdAt: timestamp("created_at")
+//       .default(sql`CURRENT_TIMESTAMP`)
+//       .notNull(),
+//   },
+//   (reaction) => ({
+//     snippetIdIdx: index("snippetId_idx").on(reaction.snippetId),
+//     userIdIdx: index("userId_idx").on(reaction.userId),
+//   })
+// );
 
 export const accountsRelations = relations(accounts, ({ one }) => ({
   user: one(users, { fields: [accounts.userId], references: [users.id] }),
@@ -107,3 +165,4 @@ export const verificationTokens = mysqlTable(
     compoundKey: primaryKey(vt.identifier, vt.token),
   })
 );
+
