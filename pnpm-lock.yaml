@@ -73,8 +73,8 @@ devDependencies:
     specifier: ^8.44.2
     version: registry.npmmirror.com/@types/eslint@8.44.6
   '@types/node':
-    specifier: ^18.16.0
-    version: registry.npmmirror.com/@types/node@18.18.7
+    specifier: ^20.0.0
+    version: 20.8.9
   '@types/react':
     specifier: ^18.2.20
     version: registry.npmmirror.com/@types/react@18.2.33
@@ -189,6 +189,12 @@ packages:
       react: registry.npmmirror.com/react@18.2.0
       react-dom: registry.npmmirror.com/react-dom@18.2.0(react@18.2.0)
     dev: false
+
+  /@types/node@20.8.9:
+    resolution: {integrity: sha512-UzykFsT3FhHb1h7yD4CA4YhBHq545JC0YnEz41xkipN88eKQtL6rSgocL5tbAP6Ola9Izm/Aw4Ora8He4x0BHg==}
+    dependencies:
+      undici-types: 5.26.5
+    dev: true
 
   /axios@0.19.2:
     resolution: {integrity: sha512-fjgm5MvRHLhx+osE2xoekY70AhARk3a6hkN+3Io1jc00jtquGvxYlKlsFUhmUET0V5te6CcZI7lcv2Ym61mjHA==}
@@ -378,6 +384,10 @@ packages:
   /tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
     dev: false
+
+  /undici-types@5.26.5:
+    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+    dev: true
 
   /watchpack@2.4.0:
     resolution: {integrity: sha512-Lcvm7MGST/4fup+ifyKi2hjyIAwcdI4HRgtvTpIUxBRhB+RFtUh8XtDOxUfctVCnhVi+QQj49i91OyvzkJl6cg==}
@@ -1081,14 +1091,6 @@ packages:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/@types/json5/-/json5-0.0.29.tgz}
     name: '@types/json5'
     version: 0.0.29
-    dev: true
-
-  registry.npmmirror.com/@types/node@18.18.7:
-    resolution: {integrity: sha512-bw+lEsxis6eqJYW8Ql6+yTqkE6RuFtsQPSe5JxXbqYRFQEER5aJA9a5UH9igqDWm3X4iLHIKOHlnAXLM4mi7uQ==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/@types/node/-/node-18.18.7.tgz}
-    name: '@types/node'
-    version: 18.18.7
-    dependencies:
-      undici-types: registry.npmmirror.com/undici-types@5.26.5
     dev: true
 
   registry.npmmirror.com/@types/prop-types@15.7.9:
@@ -4582,12 +4584,6 @@ packages:
       has-bigints: registry.npmmirror.com/has-bigints@1.0.2
       has-symbols: registry.npmmirror.com/has-symbols@1.0.3
       which-boxed-primitive: registry.npmmirror.com/which-boxed-primitive@1.0.2
-    dev: true
-
-  registry.npmmirror.com/undici-types@5.26.5:
-    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/undici-types/-/undici-types-5.26.5.tgz}
-    name: undici-types
-    version: 5.26.5
     dev: true
 
   registry.npmmirror.com/update-browserslist-db@1.0.13(browserslist@4.22.1):
